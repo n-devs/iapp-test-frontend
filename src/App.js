@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  Outlet
+} from "react-router-dom";
+import Paper from '@mui/material/Paper';
+import styled from '@emotion/styled';
+import Appbar from './components/Appbar.componet';
+
+
+const Content = styled(Paper)({
+  position: "fixed",
+  backgroundColor: "rgb(231, 235, 240)",
+  top: 0,
+  width: "100%",
+  height: "100%"
+});
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Appbar></Appbar>
+      <Content elevation={0} style={{
+        overflow: 'auto',
+        marginTop: 65
+      }} square >
+        <Outlet />
+      </Content>
     </div>
   );
 }
